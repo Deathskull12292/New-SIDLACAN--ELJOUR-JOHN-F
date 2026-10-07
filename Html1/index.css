@@ -1,0 +1,271 @@
+:root {
+  --ink: #f5f1e8;
+  --muted: #c9c2b5;
+  --accent: #f2b84b;
+  --panel: rgba(16, 20, 24, 0.86);
+  --line: rgba(245, 241, 232, 0.2);
+  --content-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--ink);
+  background: #161b20 url("./Grey Cubes.jpg") center / cover fixed no-repeat;
+  font-family: "Oswald", sans-serif;
+  line-height: 1.6;
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background: rgba(8, 11, 14, 0.5);
+  content: "";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.15;
+}
+
+h1 {
+  max-width: 760px;
+  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 600;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.site-header,
+.content,
+footer {
+  width: min(var(--content-width), calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  padding: 8rem 0 4rem;
+}
+
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 680px;
+  margin-bottom: 2rem;
+  color: var(--muted);
+  font-size: 1.2rem;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+a {
+  color: var(--ink);
+}
+
+nav a,
+.button-link,
+.back-to-top {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+nav a:hover,
+nav a:focus-visible,
+.button-link:hover,
+.button-link:focus-visible,
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  border-color: var(--accent);
+  color: #17130b;
+  background: var(--accent);
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+}
+
+.section {
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.image-gallery,
+.manwha-covers {
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.game-images {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.manwha-covers {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.game-images img {
+  aspect-ratio: 1;
+}
+
+.manwha-cover {
+  aspect-ratio: 373 / 536;
+}
+
+figcaption {
+  padding-top: 0.6rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+figcaption .button-link {
+  display: block;
+  text-align: center;
+}
+
+.anime-section > p:not(.eyebrow) {
+  max-width: 780px;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.quote-list {
+  margin: 2rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--accent);
+}
+
+.quote-list h3,
+.quote-list h4,
+.quote-list h5,
+.quote-list h6 {
+  margin-bottom: 0.5rem;
+}
+
+.single-image {
+  max-width: 640px;
+  margin: 2rem auto;
+}
+
+video {
+  display: block;
+  width: min(100%, 640px);
+  height: auto;
+  margin: 2rem auto 0;
+}
+
+.quiz fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+}
+
+.quiz legend {
+  padding-inline: 0.5rem;
+  color: var(--muted);
+}
+
+.quiz label {
+  color: var(--ink);
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0 4rem;
+}
+
+.button-link {
+  border-color: var(--accent);
+  color: #17130b;
+  background: var(--accent);
+}
+
+.back-to-top {
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    padding: 4rem 0 2rem;
+  }
+
+  .game-images,
+  .manwha-covers {
+    grid-template-columns: 1fr;
+  }
+
+  .game-images figure,
+  .manwha-covers figure {
+    width: min(100%, 373px);
+    margin-inline: auto;
+  }
+
+  .quiz fieldset {
+    display: grid;
+  }
+}
+
+

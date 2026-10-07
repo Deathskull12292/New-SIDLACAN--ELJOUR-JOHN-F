@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with me for web development projects and collaborations">
+    <title>Contact Me | Web Developer</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="contact.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>Portfolio</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="Index.html#hero" class="nav-link">Home</a></li>
+                <li><a href="Index.html#about" class="nav-link">About</a></li>
+                <li><a href="Index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="Index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Header Section -->
+        <section class="contact-header">
+            <div class="container">
+                <h1>Let's Get In Touch</h1>
+                <p class="contact-intro">I'm always interested in hearing about new projects and opportunities. Whether you have a question, want to collaborate, or just want to say hello, feel free to reach out!</p>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="contact-info-section">
+            <div class="container">
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <h3>Email</h3>
+                        <a href="mailto:eljoursidlacan@gmail.com">eljoursidlacan@gmail.com</a>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>Philippines</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">⏱️</div>
+                        <h3>Response Time</h3>
+                        <p>Usually within 24 hours</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <h2 class="section-title">Send Me a Message</h2>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            minlength="3" 
+                            maxlength="50" 
+                            placeholder="Your Full Name" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@example.com" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input 
+                            type="text" 
+                            id="subject" 
+                            name="subject" 
+                            minlength="5" 
+                            maxlength="100" 
+                            placeholder="What is this about?" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="countryCode">Country Code</label>
+                            <select id="countryCode" name="country" class="country-select">
+                                <option value="ph">Philippines (+63)</option>
+                                <option value="us">United States (+1)</option>
+                                <option value="uk">United Kingdom (+44)</option>
+                                <option value="au">Australia (+61)</option>
+                                <option value="ca">Canada (+1)</option>
+                                <option value="in">India (+91)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                minlength="7" 
+                                maxlength="15" 
+                                inputmode="numeric" 
+                                placeholder="Your Phone Number"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea 
+                            id="message" 
+                            name="message" 
+                            minlength="10" 
+                            maxlength="1000" 
+                            rows="6" 
+                            placeholder="Tell me about your project or inquiry..." 
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <input 
+                            type="checkbox" 
+                            id="terms" 
+                            name="terms" 
+                            required
+                        >
+                        <label for="terms">I agree to be contacted regarding this inquiry</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    <p id="successMessage" class="success-message" role="status" aria-live="polite">Message sent successfully! I'll get back to you soon.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Eljour John F Sidlacan. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">GitHub</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Handle form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:eljoursidlacan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 5000);
+        });
+
+        // Add active class to current nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === 'contact.html') {
+                link.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>

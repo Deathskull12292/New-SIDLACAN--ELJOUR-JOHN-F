@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape to Florida</title>
+        <link rel="stylesheet" href="TravelWebpage.css">
+</head>
+<body>
+
+<header>
+    <h1>
+        <span class="icon-palm" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 22s-1-4 0-6 2-3 4-3 4 1 4 1-2-3-5-4c0 0 3-2 3-6 0 0-2 1-4 3 0 0-1-4-5-4 0 0 1 3 0 5 0 0-3-1-4 2 0 0 3 0 4 3 0 0-1 3-1 6 0 0 5 0 6 0" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        Discover the Magic of Florida
+    </h1>
+    <p>From sun-kissed beaches to thrilling theme parks and vibrant nightlife, Florida is more than a vacation destination—it is a dream escape.</p>
+    <div class="quick-links">
+        <a href="#places">Beautiful Places</a>
+        <a href="#reasons">Reasons to Visit</a>
+        <a href="#map">Explore the Map</a>
+    </div>
+    <div class="utility-menu" aria-hidden="false">
+        <button class="utility-btn" id="utilityToggle" aria-expanded="false">⚙️</button>
+        <div class="utility-panel" id="utilityPanel" role="menu">
+            <label for="langSelect">Language</label>
+            <select id="langSelect">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="fil">Filipino</option>
+            </select>
+
+            <label class="theme-label">Theme</label>
+            <div class="theme-controls">
+                <button id="themeToggle" class="utility-btn theme-button">Light / Dark</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Terms & Agreement overlay shown on first visit until accepted -->
+<div id="termsOverlay" class="terms-overlay terms-overlay-hidden" role="dialog" aria-modal="true">
+    <div class="terms-modal">
+        <h3>Terms & Agreement</h3>
+        <div class="terms-content">
+            <p>Welcome — before you enter, please read and agree to the following terms:</p>
+            <ul>
+                <li>By using this site you agree to view content responsibly and respect copyright of images and media.</li>
+                <li>This site provides travel suggestions and information for planning purposes only.</li>
+                <li>The owner is not liable for third-party bookings, availability, or changes in pricing.</li>
+                <li>Your contact information provided via the contact form will be used only to respond to inquiries.</li>
+            </ul>
+            <p>If you agree, check the box below and click "Enter site" to continue.</p>
+        </div>
+        <div class="terms-actions">
+            <label class="terms-checkbox"><input id="termsAgree" type="checkbox"> I agree to the terms</label>
+            <button id="enterBtn" class="btn-disabled">Enter site</button>
+            <button id="declineBtn">Decline</button>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div class="intro">
+        <div>
+            <h2>Why Florida Should Be Your Next Adventure</h2>
+            <p>Imagine waking up to golden sunsets, diving into crystal-clear waters, and spending your evenings under the stars. Florida offers endless excitement for families, couples, and solo travelers alike.</p>
+            <div class="highlight-box">
+                <strong>Florida is the perfect mix of relaxation, adventure, and unforgettable memories.</strong>
+            </div>
+        </div>
+        <img src="Images/Dolphin.jpg" alt="Dolphin tour in Florida">
+    </div>
+</section>
+
+<section id="places">
+    <h2>Beautiful Places You Must Visit</h2>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Sunny beach in Florida">
+            <div class="gallery-caption">Siesta Key Beach</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=900&q=80" alt="Disney World theme park in Florida">
+            <div class="gallery-caption">Walt Disney World</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=900&q=80" alt="Florida wildlife and nature scenery">
+            <div class="gallery-caption">Everglades National Park</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=900&q=80" alt="Florida sunset and tropical scenery">
+            <div class="gallery-caption">Key West</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=900&q=80" alt="Walt Disney World castle view">
+            <div class="gallery-caption">Magic Kingdom</div>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=900&q=80" alt="Universal Orlando attraction">
+            <div class="gallery-caption">Universal Orlando</div>
+        </div>
+    </div>
+    <p>Whether you want to relax on white-sand beaches, explore lively city streets, or watch dolphins glide through the water, Florida has something for everyone.</p>
+</section>
+
+<section id="reasons">
+    <h2>Reasons People Fall in Love With Florida</h2>
+    <div class="media-row">
+        <div class="reasons-list">
+            <ul class="reason-list">
+                <li><strong>Sunny weather all year long</strong> that makes outdoor fun possible almost every day.</li>
+                <li><strong>World-famous theme parks</strong> like Walt Disney World and Universal Orlando.</li>
+                <li><strong>Stunning beaches</strong> where you can swim, snorkel, and enjoy the ocean breeze.</li>
+                <li><strong>Fresh seafood and tropical flavors</strong> that make every meal feel like a vacation.</li>
+                <li><strong>Wildlife and nature</strong> including dolphins, manatees, and beautiful national parks.</li>
+            </ul>
+        </div>
+        <div class="media" id="energy">
+            <iframe width="958" height="539" src="https://www.youtube.com/embed/GISdL7MN6z8" title="UNSEEN FLORIDA | Most Amazing Places and Hidden Gems No One Talks About | 4K USA Travel Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen> title="Florida travel video" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<section id="map">
+    <h2>Explore Florida on the Map</h2>
+    <div class="map-panel">
+        <div class="map-instructions">
+            <h3>How to use this map</h3>
+            <p>Follow these simple steps to explore Florida’s highlights:</p>
+            <ol>
+                <li>Drag or swipe to pan across the state.</li>
+                <li>Scroll or pinch to zoom in on key areas.</li>
+                <li>Look for beaches, parks, and cities along the coast.</li>
+                <li>Use the map controls to move between regions and landmarks.</li>
+            </ol>
+            <p>Try zooming into Miami, Orlando, and the Florida Keys for the best travel inspiration.</p>
+        </div>
+        <div class="map-frame">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7241652.012888893!2d-83.804601!3d27.5946799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c1766591562abf%3A0xf72e13d35bc74ed0!2sFlorida%2C%20USA!5e0!3m2!1sen!2sph!4v1784682667930!5m2!1sen!2sph" height="450" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Florida Travel Experience</p>
+    <a class="contact-link" href="TravelContact.html">Contact Me</a>
+</footer>
+
+<script>
+// Terms overlay logic
+(function(){
+    const overlay = document.getElementById('termsOverlay');
+    const agree = document.getElementById('termsAgree');
+    const enter = document.getElementById('enterBtn');
+    const decline = document.getElementById('declineBtn');
+    const termsKey = 'termsAccepted';
+
+    function hasAcceptedTerms(){
+        if(new URLSearchParams(window.location.search).get(termsKey) === '1') return true;
+        if(window.name.indexOf('floridaTermsAccepted') !== -1) return true;
+        try{
+            if(localStorage.getItem(termsKey) === '1') return true;
+        }catch(e){}
+        return document.cookie.split('; ').some(cookie => cookie === termsKey + '=1');
+    }
+
+    function rememberTermsAcceptance(){
+        window.name = 'floridaTermsAccepted';
+        try{ localStorage.setItem(termsKey, '1'); }catch(e){}
+        document.cookie = termsKey + '=1; max-age=31536000; path=/';
+        document.querySelectorAll('.contact-link').forEach(link => {
+            link.href = 'TravelContact.html?' + termsKey + '=1';
+        });
+    }
+
+    function showIfNeeded(){
+        overlay.style.display = hasAcceptedTerms() ? 'none' : 'flex';
+    }
+
+    agree.addEventListener('change', function(){
+        if(agree.checked){
+            enter.classList.remove('btn-disabled');
+        } else {
+            enter.classList.add('btn-disabled');
+        }
+    });
+
+    enter.addEventListener('click', function(){
+        if(!agree.checked) return;
+        rememberTermsAcceptance();
+        overlay.style.display = 'none';
+    });
+
+    decline.addEventListener('click', function(){
+        // Simple action: redirect away to google when declining
+        window.location.href = 'about:blank';
+    });
+
+    // show overlay after DOM ready
+    document.addEventListener('DOMContentLoaded', showIfNeeded);
+})();
+</script>
+
+<script>
+// Utility menu: language + theme
+(function(){
+    const toggle = document.getElementById('utilityToggle');
+    const panel = document.getElementById('utilityPanel');
+    const langSel = document.getElementById('langSelect');
+    const themeBtn = document.getElementById('themeToggle');
+
+    function applyTheme(theme){
+        if(theme === 'dark') document.body.classList.add('dark');
+        else document.body.classList.remove('dark');
+    }
+
+    function applyLanguage(lang){
+        const h1 = document.querySelector('header h1');
+        const icon = h1.querySelector('.icon-palm') ? h1.querySelector('.icon-palm').outerHTML : '';
+        const headerP = document.querySelector('header p');
+        const links = document.querySelectorAll('.quick-links a');
+        const contact = document.querySelector('.contact-link');
+        const placesH2 = document.querySelector('#places h2');
+        const reasonH2 = document.querySelector('#reasons h2');
+        const sideTitle = document.querySelector('.side-title');
+        const energyP = document.querySelector('#energy p');
+        const introP = document.querySelector('.intro div p');
+        const mapH2 = document.querySelector('#map h2');
+        const galleryCaptions = document.querySelectorAll('.gallery-caption');
+        const reasonItems = document.querySelectorAll('#reasons .reason-list li');
+
+        const strings = {
+            en: {
+                header: 'ðŸŒ´ Discover the Magic of Florida',
+                headerP: 'From sun-kissed beaches to thrilling theme parks and vibrant nightlife, Florida is more than a vacation destination—it is a dream escape.',
+                links: ['Beautiful Places','Reasons to Visit','Feel the Energy','Explore the Map'],
+                contact: 'Contact Me',
+                placesH2: 'Beautiful Places You Must Visit',
+                placesCaptions: ['Siesta Key Beach','Walt Disney World','Everglades National Park','Key West','Magic Kingdom','Universal Orlando'],
+                reasonsH2: 'Reasons People Fall in Love With Florida',
+                sideTitle: 'Feel the Energy of Florida',
+                energyP: 'One trip to Florida can change the way you see travel. It is the place where adventure meets comfort and every day feels like a postcard come to life.',
+                introP: 'Imagine waking up to golden sunsets, diving into crystal-clear waters, and spending your evenings under the stars. Florida offers endless excitement for families, couples, and solo travelers alike.',
+                reasonItems: [
+                    'Sunny weather all year long that makes outdoor fun possible almost every day.',
+                    'World-famous theme parks like Walt Disney World and Universal Orlando.',
+                    'Stunning beaches where you can swim, snorkel, and enjoy the ocean breeze.',
+                    'Fresh seafood and tropical flavors that make every meal feel like a vacation.',
+                    'Wildlife and nature including dolphins, manatees, and beautiful national parks.'
+                ],
+                mapH2: 'Explore Florida on the Map'
+            },
+            es: {
+                header: 'ðŸŒ´ Descubre la magia de Florida',
+                headerP: 'Desde playas bañadas por el sol hasta parques temáticos emocionantes y una vida nocturna vibrante, Florida es más que un destino de vacaciones: es una escapada de ensueño.',
+                links: ['Lugares hermosos','Razones para visitar','Siente la energía','Explorar el mapa'],
+                contact: 'Contáctame',
+                placesH2: 'Lugares hermosos que debes visitar',
+                placesCaptions: ['Playa Siesta Key','Walt Disney World','Parque Nacional Everglades','Cayo Hueso','Reino Mágico','Universal Orlando'],
+                reasonsH2: 'Razones por las que la gente se enamora de Florida',
+                sideTitle: 'Siente la energía de Florida',
+                energyP: 'Un viaje a Florida puede cambiar la forma en que ves viajar. Es el lugar donde la aventura se encuentra con la comodidad y cada día se siente como una postal.',
+                introP: 'Imagina despertarte con atardeceres dorados, sumergirte en aguas cristalinas y pasar tus noches bajo las estrellas. Florida ofrece emoción sin fin para familias, parejas y viajeros solitarios por igual.',
+                reasonItems: [
+                    'Clima soleado todo el año que permite actividades al aire libre casi todos los días.',
+                    'Parques temáticos de fama mundial como Walt Disney World y Universal Orlando.',
+                    'Playas impresionantes donde puedes nadar, hacer snorkel y disfrutar de la brisa marina.',
+                    'Mariscos frescos y sabores tropicales que hacen que cada comida se sienta como unas vacaciones.',
+                    'Vida silvestre y naturaleza, incluyendo delfines, manatíes y hermosos parques nacionales.'
+                ],
+                mapH2: 'Explora Florida en el mapa'
+            },
+            fil: {
+                header: 'ðŸŒ´ Tuklasin ang Mahika ng Florida',
+                headerP: 'Mula sa araw-araw na beach hanggang sa nakakapanabik na theme park at buhay-gabing puno ng kulay, ang Florida ay higit pa sa destinasyon — ito ay isang pangarap na pagtakas.',
+                links: ['Magagandang Lugar','Mga Dahilan para Bumisita','Dama ang Enerhiya','Tuklasin ang Mapa'],
+                contact: 'Makipag-ugnayan',
+                placesH2: 'Magagandang Lugar na Dapat Mong Bisitahin',
+                placesCaptions: ['Siesta Key Beach','Walt Disney World','Everglades National Park','Key West','Magic Kingdom','Universal Orlando'],
+                reasonsH2: 'Mga Dahilan kung Bakit Magugustuhan Mo ang Florida',
+                sideTitle: 'Dama ang Enerhiya ng Florida',
+                energyP: 'Isang paglalakbay sa Florida ay maaaring magbago kung paano mo nakikita ang paglalakbay. Dito nagsasalubong ang pakikipagsapalaran at kaginhawaan, at bawat araw ay parang isang postcard na nagkakaroon ng buhay.',
+                introP: 'Isipin mong nagigising ka sa ginintuang paglubog ng araw, sumisisid sa malinaw na tubig, at ginugugol ang gabi sa ilalim ng mga bituin. Nag-aalok ang Florida ng walang katapusang kasiyahan para sa pamilya, mag-asawa, at mga solo na biyahero.',
+                reasonItems: [
+                    'Maliwanag na panahon halos buong taon na nagpapahintulot ng mga panlabas na kasiyahan halos araw-araw.',
+                    'Mga mundo-klaseng theme park tulad ng Walt Disney World at Universal Orlando.',
+                    'Kamangha-manghang mga beach kung saan pwede kang lumangoy, mag-snorkel, at tamasahin ang simoy ng dagat.',
+                    'Sariwang pagkaing-dagat at tropikal na lasa na nagpaparamdam sa bawat pagkain na parang bakasyon.',
+                    'Kalikasan at wildlife kabilang ang dolphins, manatees, at magagandang pambansang parke.'
+                ],
+                mapH2: 'Tuklasin ang Florida sa Mapa'
+            }
+        };
+
+        const s = lang === 'es' ? strings.es : (lang === 'fil' ? strings.fil : strings.en);
+
+        // header (preserve icon)
+        h1.innerHTML = icon + ' ' + s.header.replace(/^ðŸŒ´\s*/, '');
+        if(headerP) headerP.innerText = s.headerP;
+
+        // quick links
+        links.forEach((a,i)=>{ if(a) a.innerText = s.links[i] || a.innerText; });
+        if(contact) contact.innerText = s.contact;
+
+        // section headings
+        if(placesH2) placesH2.innerText = s.placesH2;
+        if(reasonH2) reasonH2.innerText = s.reasonsH2;
+        if(sideTitle) sideTitle.innerText = s.sideTitle;
+        if(mapH2) mapH2.innerText = s.mapH2;
+
+        // intro paragraph
+        if(introP) introP.innerText = s.introP;
+
+        // gallery captions
+        galleryCaptions.forEach((cap,i)=>{ cap.innerText = s.placesCaptions[i] || cap.innerText; });
+
+        // reasons list
+        reasonItems.forEach((li,i)=>{ if(li) li.innerText = s.reasonItems[i] || li.innerText; });
+
+        // energy paragraph
+        if(energyP) energyP.innerText = s.energyP;
+    }
+
+    // toggle panel
+    toggle.addEventListener('click', function(e){
+        const open = panel.classList.toggle('show');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // theme button
+    themeBtn.addEventListener('click', function(){
+        const isDark = document.body.classList.toggle('dark');
+        try{ localStorage.setItem('siteTheme', isDark ? 'dark' : 'light'); }catch(e){}
+    });
+
+    function animateClick(element){
+        if(!element) return;
+        element.classList.add('button-press');
+        element.addEventListener('animationend', function(){
+            element.classList.remove('button-press');
+        }, { once: true });
+    }
+
+    [
+        ...document.querySelectorAll('.utility-btn'),
+        ...document.querySelectorAll('.contact-link'),
+        ...document.querySelectorAll('.quick-links a')
+    ].forEach(el => {
+        el.addEventListener('click', function(){ animateClick(el); });
+    });
+
+    // language selector
+    langSel.addEventListener('change', function(){
+        applyLanguage(this.value);
+        try{ localStorage.setItem('siteLang', this.value); }catch(e){}
+    });
+
+    // init from storage
+    document.addEventListener('DOMContentLoaded', function(){
+        try{
+            const theme = localStorage.getItem('siteTheme') || 'light';
+            applyTheme(theme);
+            const lang = localStorage.getItem('siteLang') || 'en';
+            langSel.value = lang;
+            applyLanguage(lang);
+        }catch(e){}
+    });
+
+    // close panel when clicking outside
+    document.addEventListener('click', function(e){
+        if(!panel.contains(e.target) && !toggle.contains(e.target)){
+            panel.classList.remove('show');
+            toggle.setAttribute('aria-expanded','false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
+
