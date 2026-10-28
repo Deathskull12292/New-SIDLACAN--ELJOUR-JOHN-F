@@ -5,15 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <script src="Cart.js"></script>
+    <link rel="stylesheet" href="Cart.css">
 </head>
 
 <body>
 
 <p id="quantity"></p>
 <button type="button" onclick="document.location='Products.html'" id="backBtn">Back to Products</button>
+<button type="button" onclick="document.location='Payment.html'" id="payBtn">Pay Now</button>
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+    let quantity = localStorage.getItem("qnty");
+    document.getElementById("quantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
 
- 
+ });
+
+
+ </script>
+
+
+
 </body>
 
 

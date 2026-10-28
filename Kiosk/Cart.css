@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    --color-bg: #101114;
+    --color-panel: #1b1d22;
+    --color-border: #34363d;
+    --color-text: #f5f5f6;
+    --color-muted: #a7a9b0;
+    --color-accent: #f5a623;
+
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    background:
+        radial-gradient(ellipse at 50% 0, rgb(245 166 35 / 12%), transparent 48%),
+        var(--color-bg);
+    color: var(--color-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body::before {
+    width: min(100%, 34rem);
+    padding: 0 0 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-accent);
+    content: "711 NIGHT KIOSK";
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+#quantity {
+    width: min(100%, 34rem);
+    margin: 0;
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-panel);
+    box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 28%);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+}
+
+button {
+    min-height: 3.5rem;
+    padding: 0.85rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.7rem;
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+#backBtn {
+    width: min(100%, 34rem);
+    border-color: var(--color-border);
+    background: #25272d;
+    color: var(--color-text);
+}
+
+#backBtn:hover {
+    background: #30323a;
+}
+
+#payBtn {
+    width: min(100%, 34rem);
+    background: var(--color-accent);
+    color: #17130b;
+}
+
+#payBtn:hover {
+    background: #ffba48;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1.25rem;
+    }
+
+    #quantity {
+        padding: 1.5rem 1rem;
+    }
+}

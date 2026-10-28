@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="Payment.css">
+</head>
+
+<body>
+
+<p id="quantity"></p>
+<button type="button" id="payBtn">Pay Now</button>
+<button type="button" onclick="document.location='cart.html'" id="backBtn">Back to Cart</button>
+
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+    let quantity = localStorage.getItem("qnty");
+    document.getElementById("quantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
+    });
+    document.getElementById("payBtn").addEventListener("click", function() {
+        if (quantity <= 0) {
+            alert("Payment successful! Thank you for your purchase.");
+            localStorage.removeItem("qnty");
+            document.getElementById("quantity").textContent = "Midnight Ice Cream Quantity: 0";
+        } else {
+            alert("Your cart is empty. Please add items to your cart before proceeding to payment.");
+        }
+    });
+
+
+</script>
+
+</body>
+
+
+
+</html>

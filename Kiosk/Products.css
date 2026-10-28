@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    --color-bg: #101114;
+    --color-panel: #1b1d22;
+    --color-border: #34363d;
+    --color-text: #f5f5f6;
+    --color-muted: #a7a9b0;
+    --color-accent: #f5a623;
+
+    min-height: 100vh;
+    margin: 0;
+    padding: 1.5rem clamp(1rem, 5vw, 4rem) 4rem;
+    background:
+        radial-gradient(ellipse at 50% 0, rgb(245 166 35 / 12%), transparent 48%),
+        var(--color-bg);
+    color: var(--color-text);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+header {
+    width: min(100%, 76rem);
+    min-height: 5rem;
+    margin: 0 auto 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+header .logo {
+    width: 3.5rem;
+    height: 3.5rem;
+    object-fit: contain;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(1.2rem, 3vw, 1.65rem);
+    letter-spacing: 0.02em;
+}
+
+body > h1 {
+    width: min(100%, 76rem);
+    margin: 0 auto 1.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.product-card {
+    width: min(100%, 76rem);
+    min-height: 20rem;
+    margin: 0 auto;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    background:
+        linear-gradient(120deg, rgb(245 166 35 / 8%), transparent 55%),
+        var(--color-panel);
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 28%);
+}
+
+.product-card > div {
+    width: 100%;
+}
+
+.product-card h2 {
+    margin: 0 0 2rem;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.3;
+}
+
+#IceCreamQty {
+    width: min(100%, 10rem);
+    min-height: 3.5rem;
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.65rem;
+    background: #111216;
+    color: var(--color-text);
+    font: inherit;
+    font-size: 1.1rem;
+}
+
+#IceCreamQty:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+button {
+    min-height: 3.5rem;
+    margin: 0.4rem 0.45rem 0.4rem 0;
+    padding: 0.85rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.7rem;
+    background: var(--color-accent);
+    color: #17130b;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease, border-color 160ms ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #ffba48;
+}
+
+button:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
+
+#removeIceCream,
+#ViewCartBtn {
+    border-color: var(--color-border);
+    background: #25272d;
+    color: var(--color-text);
+}
+
+#removeIceCream:hover,
+#ViewCartBtn:hover {
+    background: #30323a;
+}
+
+@media (max-width: 560px) {
+    header {
+        margin-bottom: 2.5rem;
+    }
+
+    .product-card {
+        min-height: auto;
+    }
+
+    .product-card button {
+        width: 100%;
+        margin: 0.35rem 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

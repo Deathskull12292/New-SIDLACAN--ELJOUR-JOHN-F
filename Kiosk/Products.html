@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>711 Night Kiosk</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="Products.css">
         <script src="Products.js"></script>
     </head>
     <body>
@@ -15,18 +15,37 @@
         </header>
 
         <h1>Products</h1>
-         <div class="product">
+        <div class="product-card">
+            <div>
 
-        <h2>Midnight Ice Cream - ₱67 </h2>
+            <h2>Midnight Ice Cream - ₱67 </h2>
+            <img src="Kiosk\Assets\Midnight Ice Cream.jpg" alt="Midnight Ice Cream" class="product-image">
        
-        <input id="IceCreamQty" type="number" step="1" min="1" value="1">
-        <button id="addIceCream">Add to Cart</button>
-        <button type="button" onclick="document.location='Cart.html'" id="ViewCartBtn">View Cart</button>
+            <input id="IceCreamQty" type="number" step="1" min="1" value="1">
+            <button id="addIceCream">Add to Cart</button>
+            <button id="removeIceCream">Remove from Cart</button>
+            <button type="button" onclick="document.location='Cart.html'" id="ViewCartBtn">View Cart</button>
 
-         </div>
-        
-        
+             </div>
+        </div>
 
+<script> 
+document.getElementById("addIceCream").addEventListener("click", function() {
+    let iceCreamQty = parseInt(document.getElementById("IceCreamQty").value);
+    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
+    localStorage.setItem("qnty", currentQty + iceCreamQty);
+    alert(iceCreamQty + " Midnight Ice Cream(s) added to cart.");
+});
+
+document.getElementById("removeIceCream").addEventListener("click", function() {
+    let iceCreamQty = parseInt(document.getElementById("IceCreamQty").value);
+    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
+    let newQty = Math.max(0, currentQty - iceCreamQty);
+    localStorage.setItem("qnty", newQty);
+    alert(iceCreamQty + " Midnight Ice Cream(s) removed from cart.");
+});
+
+</script>
 
 
 
