@@ -3,11 +3,13 @@
 }
 
 body {
-    --color-bg: #101114;
-    --color-panel: #1b1d22;
-    --color-border: #34363d;
+    --color-bg: #07080d;
+    --color-panel: #13101d;
+    --color-border: #45305f;
     --color-text: #f5f5f6;
-    --color-accent: #f5a623;
+    --color-cyan: #22d3ee;
+    --color-purple: #a855f7;
+    --color-accent: var(--color-cyan);
 
     min-height: 100vh;
     margin: 0;
@@ -18,17 +20,28 @@ body {
     justify-content: center;
     gap: 1.25rem;
     background:
-        radial-gradient(ellipse at 50% 0, rgb(245 166 35 / 12%), transparent 48%),
+        radial-gradient(ellipse at 18% 0, rgb(34 211 238 / 12%), transparent 42%),
+        radial-gradient(ellipse at 82% 0, rgb(168 85 247 / 14%), transparent 44%),
         var(--color-bg);
     color: var(--color-text);
     font-family: "Segoe UI", Arial, sans-serif;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
 }
 
 body::before {
     width: min(100%, 34rem);
     padding: 0 0 1.25rem;
     border-bottom: 1px solid var(--color-border);
-    color: var(--color-accent);
+    color: var(--color-cyan);
     content: "711 NIGHT KIOSK";
     font-size: 0.9rem;
     font-weight: 800;
@@ -42,8 +55,10 @@ body::before {
     padding: 2rem;
     border: 1px solid var(--color-border);
     border-radius: 1rem;
-    background: var(--color-panel);
-    box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 28%);
+    background:
+        linear-gradient(120deg, rgb(34 211 238 / 7%), rgb(168 85 247 / 9%)),
+        var(--color-panel);
+    box-shadow: 0 1.25rem 3rem rgb(0 0 0 / 40%);
     font-size: clamp(1.25rem, 3vw, 1.75rem);
     font-weight: 700;
     line-height: 1.5;
@@ -74,22 +89,22 @@ button:focus-visible {
 #backBtn {
     width: min(100%, 34rem);
     border-color: var(--color-border);
-    background: #25272d;
+    background: #21152e;
     color: var(--color-text);
 }
 
 #backBtn:hover {
-    background: #30323a;
+    background: #342047;
 }
 
 #payBtn {
     width: min(100%, 34rem);
-    background: var(--color-accent);
-    color: #17130b;
+    background: var(--color-purple);
+    color: #100818;
 }
 
 #payBtn:hover {
-    background: #ffba48;
+    background: #bd75ff;
 }
 
 @media (max-width: 480px) {

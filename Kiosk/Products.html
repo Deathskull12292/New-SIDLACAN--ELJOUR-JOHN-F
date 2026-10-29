@@ -9,8 +9,8 @@
     </head>
     <body>
         <header>
-            <img src="C:\Users\LMI\Desktop\Grade 11\11 - IT ARIES\SIDLACAN, ELJOUR JOHN F\Kiosk\Assets\711 logo(edited).png" alt="711 Logo" class="logo" height="100" width="100">
-            <h1>711 Night Kiosk</h1>
+            <img src="Assets/711%20logo(theme).png" alt="711 Logo" class="logo" height="100" width="100">
+            <h1> Night Kiosk</h1>
 
         </header>
 
@@ -19,13 +19,29 @@
             <div>
 
             <h2>Midnight Ice Cream - ₱67 </h2>
-            <img src="Kiosk\Assets\Midnight Ice Cream.jpg" alt="Midnight Ice Cream" class="product-image">
+            <img src="C:\Users\LMI\Desktop\Grade 11\11 - IT ARIES\SIDLACAN, ELJOUR JOHN F\Kiosk\Assets\Midnight Ice Cream.jpg" alt="Midnight Ice Cream" class="product-image">
        
             <input id="IceCreamQty" type="number" step="1" min="1" value="1">
             <button id="addIceCream">Add to Cart</button>
             <button id="removeIceCream">Remove from Cart</button>
             <button type="button" onclick="document.location='Cart.html'" id="ViewCartBtn">View Cart</button>
+            <h3>The Midnight Ice Cream is a delicious treat that will satisfy your sweet tooth.</h3>
+            
+            <h2>Neon Burger - ₱129</h2>
+            <img src="C:\Users\LMI\Desktop\Grade 11\11 - IT ARIES\SIDLACAN, ELJOUR JOHN F\Kiosk\Assets\Neon Burger.jpg" alt="Neon Burger" class="product-image">
+            <input id="NeonBurgerQty" type="number" step="1" min="1" value="1">
+            <button id="addNeonBurger">Add to Cart</button>
+            <button id="removeNeonBurger">Remove from Cart</button>
+            <button type="button" onclick="document.location='Cart.html'" id="ViewCartBtn">View Cart</button>
+            <h3>The Neon Burger is a juicy burger with a neon twist, perfect for late-night cravings.</h3>
 
+            <h2>Glow Fries - ₱89</h2>
+            <img src="C:\Users\LMI\Desktop\Grade 11\11 - IT ARIES\SIDLACAN, ELJOUR JOHN F\Kiosk\Assets\Glow Fries.jpg" alt="Glow Fries" class="product-image">
+            <input id="GlowFriesQty" type="number" step="1" min="1" value="1">
+            <button id="addGlowFries">Add to Cart</button>
+            <button id="removeGlowFries">Remove from Cart</button>
+            <button type="button" onclick="document.location='Cart.html'" id="ViewCartBtn">View Cart</button>
+            <h3>The Glow Fries are crispy fries that glow in the dark, making them a fun snack for any occasion.</h3>
              </div>
         </div>
 
@@ -43,6 +59,36 @@ document.getElementById("removeIceCream").addEventListener("click", function() {
     let newQty = Math.max(0, currentQty - iceCreamQty);
     localStorage.setItem("qnty", newQty);
     alert(iceCreamQty + " Midnight Ice Cream(s) removed from cart.");
+});
+
+document.getElementById("addNeonBurger").addEventListener("click", function() {
+    let neonBurgerQty = parseInt(document.getElementById("NeonBurgerQty").value);
+    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
+    localStorage.setItem("qnty", currentQty + neonBurgerQty);
+    alert(neonBurgerQty + " Neon Burger(s) added to cart.");
+});
+
+document.getElementById("removeNeonBurger").addEventListener("click", function() {
+    let neonBurgerQty = parseInt(document.getElementById("NeonBurgerQty").value);
+    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
+    let newQty = Math.max(0, currentQty - neonBurgerQty);
+    localStorage.setItem("qnty", newQty);
+    alert(neonBurgerQty + " Neon Burger(s) removed from cart.");
+});
+
+document.getElementById("addGlowFries").addEventListener("click", function() {
+    let glowFriesQty = parseInt(document.getElementById("GlowFriesQty").value);
+    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
+    localStorage.setItem("qnty", currentQty + glowFriesQty);
+    alert(glowFriesQty + " Glow Fries(s) added to cart.");
+});
+
+document.getElementById("removeGlowFries").addEventListener("click", function() {
+    let glowFriesQty = parseInt(document.getElementById("GlowFriesQty").value);
+    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
+    let newQty = Math.max(0, currentQty - glowFriesQty);
+    localStorage.setItem("qnty", newQty);
+    alert(glowFriesQty + " Glow Fries(s) removed from cart.");
 });
 
 </script>

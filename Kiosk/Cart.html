@@ -10,15 +10,28 @@
 
 <body>
 
-<p id="quantity"></p>
+<p id="micquantity"></p>
+<p id="neonquantity"></p>
+<p id="glowquantity"></p>
 <button type="button" onclick="document.location='Products.html'" id="backBtn">Back to Products</button>
 <button type="button" onclick="document.location='Payment.html'" id="payBtn">Pay Now</button>
  <script>
 document.addEventListener("DOMContentLoaded", function() {
     let quantity = localStorage.getItem("qnty");
-    document.getElementById("quantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
+    document.getElementById("micquantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
 
  });
+
+ document.addEventListener("DOMContentLoaded", function() {
+    let quantity = localStorage.getItem("qnty");
+    document.getElementById("neonquantity").textContent = "Neon Burger Quantity: " + quantity;
+ });
+
+ document.addEventListener("DOMContentLoaded", function() {
+    let quantity = localStorage.getItem("qnty");
+    document.getElementById("glowquantity").textContent = "Glow Fries Quantity: " + quantity;
+ });
+
 
 
  </script>
