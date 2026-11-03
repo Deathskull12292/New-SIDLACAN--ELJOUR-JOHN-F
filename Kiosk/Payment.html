@@ -10,24 +10,27 @@
 
 <body>
 
-<p id="quantity"></p>
+<p id="micquantity"></p>
+<p id="neonquantity"></p>
+<p id="glowquantity"></p>
 <button type="button" id="payBtn">Pay Now</button>
 <button type="button" onclick="document.location='cart.html'" id="backBtn">Back to Cart</button>
 
  <script>
 document.addEventListener("DOMContentLoaded", function() {
     let quantity = localStorage.getItem("qnty");
-    document.getElementById("quantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
+    document.getElementById("micquantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
     });
     document.getElementById("payBtn").addEventListener("click", function() {
         if (quantity <= 0) {
             alert("Payment successful! Thank you for your purchase.");
             localStorage.removeItem("qnty");
-            document.getElementById("quantity").textContent = "Midnight Ice Cream Quantity: 0";
+            document.getElementById("micquantity").textContent = "Midnight Ice Cream Quantity: 0";
         } else {
             alert("Your cart is empty. Please add items to your cart before proceeding to payment.");
         }
     });
+
 
 
 
