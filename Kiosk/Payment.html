@@ -9,36 +9,82 @@
 </head>
 
 <body>
+<div class="payment-container">
+    <ul id="paymentItems">
+        <li><p id="micquantity"></p><p id="micprice"></p></li>
+        <li><p id="neonquantity"></p><p id="neonprice"></p></li>
+        <li><p id="glowquantity"></p><p id="glowprice"></p></li>
+        <li><p id="spicyquantity"></p><p id="spicyprice"></p></li>
+        <li><p id="spookyquantity"></p><p id="spookyprice"></p></li>
+        <li><p id="thxgivingquantity"></p><p id="thxgivingprice"></p></li>
+    </ul>
+</div>
 
-<p id="micquantity"></p>
-<p id="neonquantity"></p>
-<p id="glowquantity"></p>
 <button type="button" id="payBtn">Pay Now</button>
-<button type="button" onclick="document.location='cart.html'" id="backBtn">Back to Cart</button>
+<button type="button" onclick="document.location='Cart.html'" id="backBtn">Back to Cart</button>
 
- <script>
-document.addEventListener("DOMContentLoaded", function() {
-    let quantity = localStorage.getItem("qnty");
-    document.getElementById("micquantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
+<script>
+const productPrices = {
+    MidnightIceCream: 67,
+    NeonBurger: 129,
+    GlowFries: 89,
+    SpicySpaghetti: 77,
+    SpookyHotDog: 99,
+    ThanksgivingChicken: 199
+};
+
+function getCart() {
+    try {
+        const savedCart = JSON.parse(localStorage.getItem("kioskCart") || "{}");
+        return savedCart && typeof savedCart === "object" ? savedCart : {};
+    } catch (error) {
+        return {};
+    }
+}
+
+function updatePaymentDisplay() {
+    const cart = getCart();
+    const displayMap = [
+        { key: "MidnightIceCream", id: "micquantity", priceId: "micprice", label: "Midnight Ice Cream" },
+        { key: "NeonBurger", id: "neonquantity", priceId: "neonprice", label: "Neon Burger" },
+        { key: "GlowFries", id: "glowquantity", priceId: "glowprice", label: "Glow Fries" },
+        { key: "SpicySpaghetti", id: "spicyquantity", priceId: "spicyprice", label: "Spicy Spaghetti" },
+        { key: "SpookyHotDog", id: "spookyquantity", priceId: "spookyprice", label: "Spooky Hot Dog" },
+        { key: "ThanksgivingChicken", id: "thxgivingquantity", priceId: "thxgivingprice", label: "Thanksgiving Chicken" }
+    ];
+
+    let total = 0;
+
+    displayMap.forEach(({ key, id, priceId, label }) => {
+        const quantity = Number(cart[key]) || 0;
+        const price = Number(productPrices[key]) || 0;
+        const subtotal = quantity * price;
+        total += subtotal;
+
+        document.getElementById(id).textContent = `${label} Quantity: ${quantity}`;
+        document.getElementById(priceId).textContent = `Amount: ₱${subtotal}`;
     });
-    document.getElementById("payBtn").addEventListener("click", function() {
-        if (quantity <= 0) {
-            alert("Payment successful! Thank you for your purchase.");
-            localStorage.removeItem("qnty");
-            document.getElementById("micquantity").textContent = "Midnight Ice Cream Quantity: 0";
-        } else {
-            alert("Your cart is empty. Please add items to your cart before proceeding to payment.");
-        }
-    });
 
+    document.getElementById("payBtn").dataset.total = String(total);
+}
 
+document.addEventListener("DOMContentLoaded", updatePaymentDisplay);
 
+document.getElementById("payBtn").addEventListener("click", function () {
+    const cart = getCart();
+    const cartTotal = Object.keys(cart).reduce((sum, key) => sum + (Number(cart[key]) || 0) * (Number(productPrices[key]) || 0), 0);
 
+    if (cartTotal <= 0) {
+        alert("Your cart is empty. Please add items to your cart before proceeding to payment.");
+        return;
+    }
 
+    alert(`Payment successful! Thank you for your purchase. Total: ₱${cartTotal}`);
+    localStorage.removeItem("kioskCart");
+    localStorage.setItem("qnty", "0");
+    updatePaymentDisplay();
+});
 </script>
 
 </body>
-
-
-
 </html>

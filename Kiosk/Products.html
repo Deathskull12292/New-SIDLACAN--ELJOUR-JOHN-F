@@ -24,7 +24,6 @@
                     <input id="IceCreamQty" type="number" step="1" min="1" value="1" aria-label="Midnight Ice Cream quantity">
                     <button id="addIceCream">Add to Cart</button>
                     <button id="removeIceCream">Remove from Cart</button>
-                    <button type="button" onclick="document.location='Cart.html'" class="view-cart-btn">View Cart</button>
                 </div>
             </article>
 
@@ -36,7 +35,6 @@
                     <input id="NeonBurgerQty" type="number" step="1" min="1" value="1" aria-label="Neon Burger quantity">
                     <button id="addNeonBurger">Add to Cart</button>
                     <button id="removeNeonBurger">Remove from Cart</button>
-                    <button type="button" onclick="document.location='Cart.html'" class="view-cart-btn">View Cart</button>
                 </div>
             </article>
 
@@ -48,68 +46,91 @@
                     <input id="GlowFriesQty" type="number" step="1" min="1" value="1" aria-label="Glow Fries quantity">
                     <button id="addGlowFries">Add to Cart</button>
                     <button id="removeGlowFries">Remove from Cart</button>
-                    <button type="button" onclick="document.location='Cart.html'" class="view-cart-btn">View Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <h2>Spicy Spaghetti (limited) - ₱77</h2>
+                <img src="Assets/Spicy Christmas Eve Spaghetti Feast.png" alt="Spicy Spaghetti" class="product-image">
+                <p class="product-description">The Spicy Spaghetti is a fiery delight that will heat up your taste buds.</p>
+                <div class="product-actions">
+                    <input id="SpicySpaghettiQty" type="number" step="1" min="1" value="1" aria-label="Spicy Spaghetti quantity">
+                    <button id="addSpicySpaghetti">Add to Cart</button>
+                    <button id="removeSpicySpaghetti">Remove from Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <h2>Spooky Hot Dog (limited) - ₱99</h2>
+                <img src="Assets/Spooky Halloween Hotdog Promotion.png" alt="Spooky Hot Dog" class="product-image">
+                <p class="product-description">The Spooky Hot Dog is a delicious treat that will give you a spooky twist on a classic favorite.</p>
+                <div class="product-actions">
+                    <input id="SpookyHotDogQty" type="number" step="1" min="1" value="1" aria-label="Spooky Hot Dog quantity">
+                    <button id="addSpookyHotDog">Add to Cart</button>
+                    <button id="removeSpookyHotDog">Remove from Cart</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <h2>Thanksgiving Chicken (limited) - ₱199</h2>
+                <img src="Assets/Thanksgiving Fried Chicken Feast.png" alt="Thanksgiving Chicken" class="product-image">
+                <p class="product-description">The Thanksgiving Chicken is a delicious twist on a classic favorite, perfect for the holiday season.</p>
+                <div class="product-actions">
+                    <input id="ThanksgivingChickenQty" type="number" step="1" min="1" value="1" aria-label="Thanksgiving Chicken quantity">
+                    <button id="addThanksgivingChicken">Add to Cart</button>
+                    <button id="removeThanksgivingChicken">Remove from Cart</button>
                 </div>
             </article>
         </div>
-
-<script> 
-document.getElementById("addIceCream").addEventListener("click", function() {
-    let iceCreamQty = parseInt(document.getElementById("IceCreamQty").value);
-    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
-    localStorage.setItem("qnty", currentQty + iceCreamQty);
-    alert(iceCreamQty + " Midnight Ice Cream(s) added to cart.");
-});
-
-
-document.getElementById("removeIceCream").addEventListener("click", function() {
-    let iceCreamQty = parseInt(document.getElementById("IceCreamQty").value);
-    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
-    let newQty = Math.max(0, currentQty - iceCreamQty);
-    localStorage.setItem("qnty", newQty);
-    alert(iceCreamQty + " Midnight Ice Cream(s) removed from cart.");
-});
-
-document.getElementById("addNeonBurger").addEventListener("click", function() {
-    let neonBurgerQty = parseInt(document.getElementById("NeonBurgerQty").value);
-    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
-    localStorage.setItem("qnty", currentQty + neonBurgerQty);
-    alert(neonBurgerQty + " Neon Burger(s) added to cart.");
-});
-
-document.getElementById("removeNeonBurger").addEventListener("click", function() {
-    let neonBurgerQty = parseInt(document.getElementById("NeonBurgerQty").value);
-    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
-    let newQty = Math.max(0, currentQty - neonBurgerQty);
-    localStorage.setItem("qnty", newQty);
-    alert(neonBurgerQty + " Neon Burger(s) removed from cart.");
-});
-
-document.getElementById("addGlowFries").addEventListener("click", function() {
-    let glowFriesQty = parseInt(document.getElementById("GlowFriesQty").value);
-    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
-    localStorage.setItem("qnty", currentQty + glowFriesQty);
-    alert(glowFriesQty + " Glow Fries(s) added to cart.");
-});
-
-
-document.getElementById("removeGlowFries").addEventListener("click", function() {
-    let glowFriesQty = parseInt(document.getElementById("GlowFriesQty").value);
-    let currentQty = parseInt(localStorage.getItem("qnty")) || 0;
-    let newQty = Math.max(0, currentQty - glowFriesQty);
-    localStorage.setItem("qnty", newQty);
-    alert(glowFriesQty + " Glow Fries(s) removed from cart.");
-});
-const quantity = [
-    { id: "addIceCream", qtyInputId: "IceCreamQty", productName: "Midnight Ice Cream" },
-    { id: "removeIceCream", qtyInputId: "IceCreamQty", productName: "Midnight Ice Cream" },
-    { id: "addNeonBurger", qtyInputId: "NeonBurgerQty", productName: "Neon Burger" },
-    { id: "removeNeonBurger", qtyInputId: "NeonBurgerQty", productName: "Neon Burger" },
-    { id: "addGlowFries", qtyInputId: "GlowFriesQty", productName: "Glow Fries" },
-    { id: "removeGlowFries", qtyInputId: "GlowFriesQty", productName: "Glow Fries" }
-    
+        <button type="button" onclick="document.location='Cart.html'" class="view-cart-btn">View Cart</button>
+<script>
+const productCatalog = [
+    { key: "MidnightIceCream", label: "Midnight Ice Cream", qtyInputId: "IceCreamQty", addId: "addIceCream", removeId: "removeIceCream" },
+    { key: "NeonBurger", label: "Neon Burger", qtyInputId: "NeonBurgerQty", addId: "addNeonBurger", removeId: "removeNeonBurger" },
+    { key: "GlowFries", label: "Glow Fries", qtyInputId: "GlowFriesQty", addId: "addGlowFries", removeId: "removeGlowFries" },
+    { key: "SpicySpaghetti", label: "Spicy Spaghetti", qtyInputId: "SpicySpaghettiQty", addId: "addSpicySpaghetti", removeId: "removeSpicySpaghetti" },
+    { key: "SpookyHotDog", label: "Spooky Hot Dog", qtyInputId: "SpookyHotDogQty", addId: "addSpookyHotDog", removeId: "removeSpookyHotDog" },
+    { key: "ThanksgivingChicken", label: "Thanksgiving Chicken", qtyInputId: "ThanksgivingChickenQty", addId: "addThanksgivingChicken", removeId: "removeThanksgivingChicken" }
 ];
 
+function getCart() {
+    try {
+        const savedCart = JSON.parse(localStorage.getItem("kioskCart") || "{}");
+        return savedCart && typeof savedCart === "object" ? savedCart : {};
+    } catch (error) {
+        return {};
+    }
+}
+
+function saveCart(cart) {
+    localStorage.setItem("kioskCart", JSON.stringify(cart));
+    const totalQty = Object.values(cart).reduce((sum, qty) => sum + (Number(qty) || 0), 0);
+    localStorage.setItem("qnty", String(totalQty));
+}
+
+function updateCartItem(productKey, quantityChange, label) {
+    const cart = getCart();
+    const currentQty = Number(cart[productKey]) || 0;
+    const nextQty = Math.max(0, currentQty + quantityChange);
+    cart[productKey] = nextQty;
+    saveCart(cart);
+    alert(`${label}: ${Math.max(0, quantityChange)} item(s) ${quantityChange >= 0 ? "added" : "removed"} to cart.`);
+}
+
+productCatalog.forEach(({ key, label, qtyInputId, addId, removeId }) => {
+    const input = document.getElementById(qtyInputId);
+    if (!input) return;
+
+    document.getElementById(addId).addEventListener("click", function () {
+        const qty = parseInt(input.value, 10) || 1;
+        updateCartItem(key, qty, label);
+    });
+
+    document.getElementById(removeId).addEventListener("click", function () {
+        const qty = parseInt(input.value, 10) || 1;
+        updateCartItem(key, -qty, label);
+    });
+});
 </script>
 
 

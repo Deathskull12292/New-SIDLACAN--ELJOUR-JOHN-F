@@ -4,42 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="Cart.css">
 </head>
 
 <body>
+<div class="cart-container">
+    <ul id="cartItems">
+        <li><p id="micquantity"></p><p id="micprice"></p></li>
+        <li><p id="neonquantity"></p><p id="neonprice"></p></li>
+        <li><p id="glowquantity"></p><p id="glowprice"></p></li>
+        <li><p id="spicyquantity"></p><p id="spicyprice"></p></li>
+        <li><p id="spookyquantity"></p><p id="spookyprice"></p></li>
+        <li><p id="thxgivingquantity"></p><p id="thxgivingprice"></p></li>
+    </ul>
+</div>
 
-<p id="micquantity"></p>
-<p id="neonquantity"></p>
-<p id="glowquantity"></p>
 <button type="button" onclick="document.location='Products.html'" id="backBtn">Back to Products</button>
 <button type="button" onclick="document.location='Payment.html'" id="payBtn">Pay Now</button>
- <script>
 
-document.addEventListener("DOMContentLoaded", function() {
-    let quantity = localStorage.getItem("qnty");
-    document.getElementById("micquantity").textContent = "Midnight Ice Cream Quantity: " + quantity;
-   
- });
+<script>
+const productPrices = {
+    MidnightIceCream: 67,
+    NeonBurger: 129,
+    GlowFries: 89,
+    SpicySpaghetti: 77,
+    SpookyHotDog: 99,
+    ThanksgivingChicken: 199
+};
 
- document.addEventListener("DOMContentLoaded", function() {
-    
- });
+function getCart() {
+    try {
+        const savedCart = JSON.parse(localStorage.getItem("kioskCart") || "{}");
+        return savedCart && typeof savedCart === "object" ? savedCart : {};
+    } catch (error) {
+        return {};
+    }
+}
 
- document.addEventListener("DOMContentLoaded", function() {
-    let quantity = localStorage.getItem("qnty");
-    document.getElementById("glowquantity").textContent = "Glow Fries Quantity: " + quantity;
- });
+function updateCartDisplay() {
+    const cart = getCart();
+    const displayMap = [
+        { key: "MidnightIceCream", id: "micquantity", priceId: "micprice", label: "Midnight Ice Cream" },
+        { key: "NeonBurger", id: "neonquantity", priceId: "neonprice", label: "Neon Burger" },
+        { key: "GlowFries", id: "glowquantity", priceId: "glowprice", label: "Glow Fries" },
+        { key: "SpicySpaghetti", id: "spicyquantity", priceId: "spicyprice", label: "Spicy Spaghetti" },
+        { key: "SpookyHotDog", id: "spookyquantity", priceId: "spookyprice", label: "Spooky Hot Dog" },
+        { key: "ThanksgivingChicken", id: "thxgivingquantity", priceId: "thxgivingprice", label: "Thanksgiving Chicken" }
+    ];
 
+    displayMap.forEach(({ key, id, priceId, label }) => {
+        const quantity = Number(cart[key]) || 0;
+        const price = Number(productPrices[key]) || 0;
+        const subtotal = quantity * price;
 
+        document.getElementById(id).textContent = `${label} Quantity: ${quantity}`;
+        document.getElementById(priceId).textContent = `Subtotal: ₱${subtotal}`;
+    });
+}
 
- </script>
-
-
+document.addEventListener("DOMContentLoaded", updateCartDisplay);
+</script>
 
 </body>
-
-
-
 </html>
