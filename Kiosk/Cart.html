@@ -11,13 +11,56 @@
 <body>
 <div class="cart-container">
     <ul id="cartItems">
-        <li><p id="micquantity"></p><p id="micprice"></p></li>
-        <li><p id="neonquantity"></p><p id="neonprice"></p></li>
-        <li><p id="glowquantity"></p><p id="glowprice"></p></li>
-        <li><p id="spicyquantity"></p><p id="spicyprice"></p></li>
-        <li><p id="spookyquantity"></p><p id="spookyprice"></p></li>
-        <li><p id="thxgivingquantity"></p><p id="thxgivingprice"></p></li>
+        <li>
+            <div class="item-details"><p id="micquantity"></p><p id="micprice"></p></div>
+            <div class="quantity-controls">
+                <img src="Assets/Midnight Ice Cream.jpg" alt="Midnight Ice Cream" class="product-image">
+                <button type="button" class="increment" id="addIceCream" aria-label="Add one Midnight Ice Cream">+</button>
+                <button type="button" class="decrement" id="removeIceCream" aria-label="Remove one Midnight Ice Cream">−</button>
+            </div>
+        </li>
+        <li>
+            <div class="item-details"><p id="neonquantity"></p><p id="neonprice"></p></div>
+            <div class="quantity-controls">
+                 <img src="Assets/Neon Burger.jpg" alt="Neon Burger" class="product-image">
+                <button type="button" class="increment" id="addNeonBurger" aria-label="Add one Neon Burger">+</button>
+                <button type="button" class="decrement" id="removeNeonBurger" aria-label="Remove one Neon Burger">−</button>
+            </div>
+        </li>
+        <li>
+            <div class="item-details"><p id="glowquantity"></p><p id="glowprice"></p></div>
+            <div class="quantity-controls">
+                <img src="Assets/Glow Fries.jpg" alt="Glow Fries" class="product-image">
+                <button type="button" class="increment" id="addGlowFries" aria-label="Add one Glow Fries">+</button>
+                <button type="button" class="decrement" id="removeGlowFries" aria-label="Remove one Glow Fries">−</button>
+            </div>
+        </li>
+        <li>
+            <div class="item-details"><p id="spicyquantity"></p><p id="spicyprice"></p></div>
+            <div class="quantity-controls">
+                <img src="Assets/Spicy Christmas Eve Spaghetti Feast.png" alt="Spicy Spaghetti" class="product-image">
+                <button type="button" class="increment" id="addSpicySpaghetti" aria-label="Add one Spicy Spaghetti">+</button>
+                <button type="button" class="decrement" id="removeSpicySpaghetti" aria-label="Remove one Spicy Spaghetti">−</button>
+            </div>
+        </li>
+        <li>
+            <div class="item-details"><p id="spookyquantity"></p><p id="spookyprice"></p></div>
+            <div class="quantity-controls">
+                 <img src="Assets/Spooky Halloween Hotdog Promotion.png" alt="Spooky Hot Dog" class="product-image">
+                <button type="button" class="increment" id="addSpookyHotDog" aria-label="Add one Spooky Hot Dog">+</button>
+                <button type="button" class="decrement" id="removeSpookyHotDog" aria-label="Remove one Spooky Hot Dog">−</button>
+            </div>
+        </li>
+        <li>
+            <div class="item-details"><p id="thxgivingquantity"></p><p id="thxgivingprice"></p></div>
+            <div class="quantity-controls">
+                <img src="Assets/Thanksgiving Fried Chicken Feast.png" alt="Thanksgiving Chicken" class="product-image">
+                <button type="button" class="increment" id="addThanksgivingChicken" aria-label="Add one Thanksgiving Chicken">+</button>
+                <button type="button" class="decrement" id="removeThanksgivingChicken" aria-label="Remove one Thanksgiving Chicken">−</button>
+            </div>
+        </li>
     </ul>
+    <p id="totalPrice" class="total-price" aria-live="polite"></p>
 </div>
 
 <button type="button" onclick="document.location='Products.html'" id="backBtn">Back to Products</button>
@@ -33,6 +76,15 @@ const productPrices = {
     ThanksgivingChicken: 199
 };
 
+const displayMap = [
+    { key: "MidnightIceCream", id: "micquantity", priceId: "micprice", label: "Midnight Ice Cream", addId: "addIceCream", removeId: "removeIceCream" },
+    { key: "NeonBurger", id: "neonquantity", priceId: "neonprice", label: "Neon Burger", addId: "addNeonBurger", removeId: "removeNeonBurger" },
+    { key: "GlowFries", id: "glowquantity", priceId: "glowprice", label: "Glow Fries", addId: "addGlowFries", removeId: "removeGlowFries" },
+    { key: "SpicySpaghetti", id: "spicyquantity", priceId: "spicyprice", label: "Spicy Spaghetti", addId: "addSpicySpaghetti", removeId: "removeSpicySpaghetti" },
+    { key: "SpookyHotDog", id: "spookyquantity", priceId: "spookyprice", label: "Spooky Hot Dog", addId: "addSpookyHotDog", removeId: "removeSpookyHotDog" },
+    { key: "ThanksgivingChicken", id: "thxgivingquantity", priceId: "thxgivingprice", label: "Thanksgiving Chicken", addId: "addThanksgivingChicken", removeId: "removeThanksgivingChicken" }
+];
+
 function getCart() {
     try {
         const savedCart = JSON.parse(localStorage.getItem("kioskCart") || "{}");
@@ -42,26 +94,41 @@ function getCart() {
     }
 }
 
+function changeCartQuantity(productKey, amount) {
+    const cart = getCart();
+    cart[productKey] = Math.max(0, (Number(cart[productKey]) || 0) + amount);
+    localStorage.setItem("kioskCart", JSON.stringify(cart));
+
+    const totalQuantity = Object.values(cart).reduce((sum, quantity) => sum + (Number(quantity) || 0), 0);
+    localStorage.setItem("qnty", String(totalQuantity));
+    updateCartDisplay();
+}
+
 function updateCartDisplay() {
     const cart = getCart();
-    const displayMap = [
-        { key: "MidnightIceCream", id: "micquantity", priceId: "micprice", label: "Midnight Ice Cream" },
-        { key: "NeonBurger", id: "neonquantity", priceId: "neonprice", label: "Neon Burger" },
-        { key: "GlowFries", id: "glowquantity", priceId: "glowprice", label: "Glow Fries" },
-        { key: "SpicySpaghetti", id: "spicyquantity", priceId: "spicyprice", label: "Spicy Spaghetti" },
-        { key: "SpookyHotDog", id: "spookyquantity", priceId: "spookyprice", label: "Spooky Hot Dog" },
-        { key: "ThanksgivingChicken", id: "thxgivingquantity", priceId: "thxgivingprice", label: "Thanksgiving Chicken" }
-    ];
+    let total = 0;
 
     displayMap.forEach(({ key, id, priceId, label }) => {
         const quantity = Number(cart[key]) || 0;
         const price = Number(productPrices[key]) || 0;
         const subtotal = quantity * price;
+        total += subtotal;
 
-        document.getElementById(id).textContent = `${label} Quantity: ${quantity}`;
-        document.getElementById(priceId).textContent = `Subtotal: ₱${subtotal}`;
+        const quantityElement = document.getElementById(id);
+        const priceElement = document.getElementById(priceId);
+        const itemElement = quantityElement.closest("li");
+        itemElement.hidden = quantity < 1;
+        quantityElement.textContent = quantity >= 1 ? `${label} Quantity: ${quantity}` : "";
+        priceElement.textContent = quantity >= 1 ? `Subtotal: ₱${subtotal}` : "";
     });
+
+    document.getElementById("totalPrice").textContent = `Total Price: ₱${total}`;
 }
+
+displayMap.forEach(({ key, addId, removeId }) => {
+    document.getElementById(addId).addEventListener("click", () => changeCartQuantity(key, 1));
+    document.getElementById(removeId).addEventListener("click", () => changeCartQuantity(key, -1));
+});
 
 document.addEventListener("DOMContentLoaded", updateCartDisplay);
 </script>

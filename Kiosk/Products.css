@@ -132,6 +132,14 @@ body > h1 {
     outline-offset: 2px;
 }
 
+.product-actions .cart-quantity {
+    grid-column: 1 / -1;
+    margin: -0.35rem 0 0;
+    color: var(--color-cyan);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
 .product-actions button {
     width: 100%;
     min-width: 0;

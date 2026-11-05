@@ -22,6 +22,7 @@
                 <p class="product-description">The Midnight Ice Cream is a delicious treat that will satisfy your sweet tooth.</p>
                 <div class="product-actions">
                     <input id="IceCreamQty" type="number" step="1" min="1" value="1" aria-label="Midnight Ice Cream quantity">
+                    <p id="IceCreamQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addIceCream">Add to Cart</button>
                     <button id="removeIceCream">Remove from Cart</button>
                 </div>
@@ -33,6 +34,7 @@
                 <p class="product-description">The Neon Burger is a juicy burger with a neon twist, perfect for late-night cravings.</p>
                 <div class="product-actions">
                     <input id="NeonBurgerQty" type="number" step="1" min="1" value="1" aria-label="Neon Burger quantity">
+                    <p id="NeonBurgerQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addNeonBurger">Add to Cart</button>
                     <button id="removeNeonBurger">Remove from Cart</button>
                 </div>
@@ -44,6 +46,7 @@
                 <p class="product-description">The Glow Fries are crispy fries that glow in the dark, making them a fun snack for any occasion.</p>
                 <div class="product-actions">
                     <input id="GlowFriesQty" type="number" step="1" min="1" value="1" aria-label="Glow Fries quantity">
+                    <p id="GlowFriesQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addGlowFries">Add to Cart</button>
                     <button id="removeGlowFries">Remove from Cart</button>
                 </div>
@@ -55,6 +58,7 @@
                 <p class="product-description">The Spicy Spaghetti is a fiery delight that will heat up your taste buds.</p>
                 <div class="product-actions">
                     <input id="SpicySpaghettiQty" type="number" step="1" min="1" value="1" aria-label="Spicy Spaghetti quantity">
+                    <p id="SpicySpaghettiQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addSpicySpaghetti">Add to Cart</button>
                     <button id="removeSpicySpaghetti">Remove from Cart</button>
                 </div>
@@ -66,6 +70,7 @@
                 <p class="product-description">The Spooky Hot Dog is a delicious treat that will give you a spooky twist on a classic favorite.</p>
                 <div class="product-actions">
                     <input id="SpookyHotDogQty" type="number" step="1" min="1" value="1" aria-label="Spooky Hot Dog quantity">
+                    <p id="SpookyHotDogQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addSpookyHotDog">Add to Cart</button>
                     <button id="removeSpookyHotDog">Remove from Cart</button>
                 </div>
@@ -77,6 +82,7 @@
                 <p class="product-description">The Thanksgiving Chicken is a delicious twist on a classic favorite, perfect for the holiday season.</p>
                 <div class="product-actions">
                     <input id="ThanksgivingChickenQty" type="number" step="1" min="1" value="1" aria-label="Thanksgiving Chicken quantity">
+                    <p id="ThanksgivingChickenQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addThanksgivingChicken">Add to Cart</button>
                     <button id="removeThanksgivingChicken">Remove from Cart</button>
                 </div>
@@ -85,12 +91,12 @@
         <button type="button" onclick="document.location='Cart.html'" class="view-cart-btn">View Cart</button>
 <script>
 const productCatalog = [
-    { key: "MidnightIceCream", label: "Midnight Ice Cream", qtyInputId: "IceCreamQty", addId: "addIceCream", removeId: "removeIceCream" },
-    { key: "NeonBurger", label: "Neon Burger", qtyInputId: "NeonBurgerQty", addId: "addNeonBurger", removeId: "removeNeonBurger" },
-    { key: "GlowFries", label: "Glow Fries", qtyInputId: "GlowFriesQty", addId: "addGlowFries", removeId: "removeGlowFries" },
-    { key: "SpicySpaghetti", label: "Spicy Spaghetti", qtyInputId: "SpicySpaghettiQty", addId: "addSpicySpaghetti", removeId: "removeSpicySpaghetti" },
-    { key: "SpookyHotDog", label: "Spooky Hot Dog", qtyInputId: "SpookyHotDogQty", addId: "addSpookyHotDog", removeId: "removeSpookyHotDog" },
-    { key: "ThanksgivingChicken", label: "Thanksgiving Chicken", qtyInputId: "ThanksgivingChickenQty", addId: "addThanksgivingChicken", removeId: "removeThanksgivingChicken" }
+    { key: "MidnightIceCream", label: "Midnight Ice Cream", qtyInputId: "IceCreamQty", quantityId: "IceCreamQuantity", addId: "addIceCream", removeId: "removeIceCream" },
+    { key: "NeonBurger", label: "Neon Burger", qtyInputId: "NeonBurgerQty", quantityId: "NeonBurgerQuantity", addId: "addNeonBurger", removeId: "removeNeonBurger" },
+    { key: "GlowFries", label: "Glow Fries", qtyInputId: "GlowFriesQty", quantityId: "GlowFriesQuantity", addId: "addGlowFries", removeId: "removeGlowFries" },
+    { key: "SpicySpaghetti", label: "Spicy Spaghetti", qtyInputId: "SpicySpaghettiQty", quantityId: "SpicySpaghettiQuantity", addId: "addSpicySpaghetti", removeId: "removeSpicySpaghetti" },
+    { key: "SpookyHotDog", label: "Spooky Hot Dog", qtyInputId: "SpookyHotDogQty", quantityId: "SpookyHotDogQuantity", addId: "addSpookyHotDog", removeId: "removeSpookyHotDog" },
+    { key: "ThanksgivingChicken", label: "Thanksgiving Chicken", qtyInputId: "ThanksgivingChickenQty", quantityId: "ThanksgivingChickenQuantity", addId: "addThanksgivingChicken", removeId: "removeThanksgivingChicken" }
 ];
 
 function getCart() {
@@ -117,6 +123,17 @@ function updateCartItem(productKey, quantityChange, label) {
     alert(`${label}: ${Math.max(0, quantityChange)} item(s) ${quantityChange >= 0 ? "added" : "removed"} to cart.`);
 }
 
+function updateProductQuantities() {
+    const cart = getCart();
+
+    productCatalog.forEach(({ key, quantityId }) => {
+        const quantity = Number(cart[key]) || 0;
+        const quantityDisplay = document.getElementById(quantityId);
+        quantityDisplay.hidden = quantity < 1;
+        quantityDisplay.textContent = quantity >= 1 ? `In cart: ${quantity}` : "";
+    });
+}
+
 productCatalog.forEach(({ key, label, qtyInputId, addId, removeId }) => {
     const input = document.getElementById(qtyInputId);
     if (!input) return;
@@ -124,13 +141,17 @@ productCatalog.forEach(({ key, label, qtyInputId, addId, removeId }) => {
     document.getElementById(addId).addEventListener("click", function () {
         const qty = parseInt(input.value, 10) || 1;
         updateCartItem(key, qty, label);
+        updateProductQuantities();
     });
 
     document.getElementById(removeId).addEventListener("click", function () {
         const qty = parseInt(input.value, 10) || 1;
         updateCartItem(key, -qty, label);
+        updateProductQuantities();
     });
 });
+
+updateProductQuantities();
 </script>
 
 

@@ -49,6 +49,115 @@ body::before {
     text-align: center;
 }
 
+.payment-container {
+    width: min(100%, 42rem);
+}
+
+#paymentItems {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+    list-style: none;
+}
+
+#paymentItems li {
+    min-width: 0;
+    padding: 1rem 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.9rem;
+    background:
+        linear-gradient(120deg, rgb(34 211 238 / 6%), rgb(168 85 247 / 7%)),
+        var(--color-panel);
+}
+
+#paymentItems li[hidden] {
+    display: none;
+}
+
+.item-details {
+    min-width: 0;
+}
+
+.item-details p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.item-details p:first-child {
+    font-weight: 700;
+}
+
+.item-details p + p {
+    color: #b7b2c4;
+    font-size: 0.9rem;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 0.5rem;
+}
+
+.quantity-controls .product-image {
+    width: 4rem;
+    height: 4rem;
+    flex-shrink: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 0.65rem;
+    object-fit: cover;
+}
+
+.quantity-controls button {
+    width: 2.75rem;
+    min-height: 2.75rem;
+    padding: 0;
+    border-radius: 0.75rem;
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.quantity-controls .increment {
+    border-color: rgb(34 211 238 / 50%);
+    background: rgb(34 211 238 / 14%);
+    color: var(--color-cyan);
+}
+
+.quantity-controls .increment:hover {
+    background: rgb(34 211 238 / 25%);
+}
+
+.quantity-controls .decrement {
+    border-color: rgb(168 85 247 / 45%);
+    background: rgb(168 85 247 / 13%);
+    color: #d3a6ff;
+}
+
+.quantity-controls .decrement:hover {
+    background: rgb(168 85 247 / 25%);
+}
+
+.total-price {
+    width: 100%;
+    margin: 1rem 0 0;
+    padding: 1.15rem 1.35rem;
+    border: 1px solid rgb(34 211 238 / 45%);
+    border-radius: 0.9rem;
+    background:
+        linear-gradient(110deg, rgb(34 211 238 / 12%), rgb(168 85 247 / 13%)),
+        var(--color-panel);
+    box-shadow: 0 0.75rem 2rem rgb(0 0 0 / 25%);
+    color: var(--color-cyan);
+    font-size: clamp(1.25rem, 3vw, 1.6rem);
+    font-weight: 800;
+    text-align: right;
+}
+
 #quantity {
     width: min(100%, 34rem);
     margin: 0;
@@ -114,5 +223,24 @@ button:focus-visible {
 
     #quantity {
         padding: 1.5rem 1rem;
+    }
+
+    #paymentItems li {
+        padding: 0.85rem;
+        gap: 0.6rem;
+    }
+
+    .quantity-controls {
+        gap: 0.35rem;
+    }
+
+    .quantity-controls button {
+        width: 2.5rem;
+        min-height: 2.5rem;
+    }
+
+    .quantity-controls .product-image {
+        width: 3rem;
+        height: 3rem;
     }
 }
