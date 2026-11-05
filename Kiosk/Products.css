@@ -39,6 +39,7 @@ header {
     margin: 0 auto 4rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     border-bottom: 1px solid var(--color-border);
 }
@@ -56,6 +57,7 @@ header h1 {
     margin: 0;
     font-size: clamp(1.2rem, 3vw, 1.65rem);
     letter-spacing: 0.02em;
+    text-align: center;
 }
 
 body > h1 {
@@ -114,22 +116,63 @@ body > h1 {
     gap: 0.6rem;
 }
 
-.product-actions input {
+.quantity-stepper {
     grid-column: 1 / -1;
-    width: 100%;
-    min-height: 3rem;
-    padding: 0.65rem 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.quantity-stepper input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    min-height: 3.75rem;
+    padding: 0.5rem;
     border: 1px solid var(--color-border);
-    border-radius: 0.65rem;
+    border-radius: 0.8rem;
     background: #090a10;
     color: var(--color-text);
     font: inherit;
-    font-size: 1rem;
+    font-size: 1.4rem;
+    font-weight: 750;
+    text-align: center;
 }
 
-.product-actions input:focus-visible {
+.quantity-stepper input:focus-visible {
     outline: 3px solid var(--color-accent);
     outline-offset: 2px;
+}
+
+.quantity-stepper input::-webkit-inner-spin-button,
+.quantity-stepper input::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+}
+
+.quantity-stepper input {
+    appearance: textfield;
+}
+
+.quantity-step-controls {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.product-actions .quantity-step {
+    width: 3.75rem;
+    min-height: 3.75rem;
+    flex-shrink: 0;
+    padding: 0;
+    border-color: rgb(34 211 238 / 45%);
+    border-radius: 0.8rem;
+    background: rgb(34 211 238 / 12%);
+    color: var(--color-cyan);
+    font-size: 1.75rem;
+}
+
+.product-actions .quantity-step:hover {
+    background: rgb(34 211 238 / 25%);
 }
 
 .product-actions .cart-quantity {
@@ -182,6 +225,9 @@ button:focus-visible {
 #removeIceCream,
 #removeNeonBurger,
 #removeGlowFries,
+#removeSpicySpaghetti,
+#removeSpookyHotDog,
+#removeThanksgivingChicken,
 .view-cart-btn {
     border-color: var(--color-border);
     background: #29163a;
@@ -191,6 +237,9 @@ button:focus-visible {
 #removeIceCream:hover,
 #removeNeonBurger:hover,
 #removeGlowFries:hover,
+#removeSpicySpaghetti:hover,
+#removeSpookyHotDog:hover,
+#removeThanksgivingChicken:hover,
 .view-cart-btn:hover {
     background: #3a2052;
 }

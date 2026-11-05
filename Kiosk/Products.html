@@ -21,7 +21,13 @@
                 <img src="Assets/Midnight Ice Cream.jpg" alt="Midnight Ice Cream" class="product-image">
                 <p class="product-description">The Midnight Ice Cream is a delicious treat that will satisfy your sweet tooth.</p>
                 <div class="product-actions">
-                    <input id="IceCreamQty" type="number" step="1" min="1" value="1" aria-label="Midnight Ice Cream quantity">
+                    <div class="quantity-stepper">
+                        <input id="IceCreamQty" type="number" step="1" min="1" value="1" aria-label="Midnight Ice Cream quantity">
+                        <div class="quantity-step-controls">
+                            <button type="button" class="quantity-step" data-step="-1" aria-label="Decrease Midnight Ice Cream quantity">−</button>
+                            <button type="button" class="quantity-step" data-step="1" aria-label="Increase Midnight Ice Cream quantity">+</button>
+                        </div>
+                    </div>
                     <p id="IceCreamQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addIceCream">Add to Cart</button>
                     <button id="removeIceCream">Remove from Cart</button>
@@ -33,7 +39,13 @@
                 <img src="Assets/Neon Burger.jpg" alt="Neon Burger" class="product-image">
                 <p class="product-description">The Neon Burger is a juicy burger with a neon twist, perfect for late-night cravings.</p>
                 <div class="product-actions">
-                    <input id="NeonBurgerQty" type="number" step="1" min="1" value="1" aria-label="Neon Burger quantity">
+                    <div class="quantity-stepper">
+                        <input id="NeonBurgerQty" type="number" step="1" min="1" value="1" aria-label="Neon Burger quantity">
+                        <div class="quantity-step-controls">
+                            <button type="button" class="quantity-step" data-step="-1" aria-label="Decrease Neon Burger quantity">−</button>
+                            <button type="button" class="quantity-step" data-step="1" aria-label="Increase Neon Burger quantity">+</button>
+                        </div>
+                    </div>
                     <p id="NeonBurgerQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addNeonBurger">Add to Cart</button>
                     <button id="removeNeonBurger">Remove from Cart</button>
@@ -45,7 +57,13 @@
                 <img src="Assets/Glow Fries.jpg" alt="Glow Fries" class="product-image">
                 <p class="product-description">The Glow Fries are crispy fries that glow in the dark, making them a fun snack for any occasion.</p>
                 <div class="product-actions">
-                    <input id="GlowFriesQty" type="number" step="1" min="1" value="1" aria-label="Glow Fries quantity">
+                    <div class="quantity-stepper">
+                        <input id="GlowFriesQty" type="number" step="1" min="1" value="1" aria-label="Glow Fries quantity">
+                        <div class="quantity-step-controls">
+                            <button type="button" class="quantity-step" data-step="-1" aria-label="Decrease Glow Fries quantity">−</button>
+                            <button type="button" class="quantity-step" data-step="1" aria-label="Increase Glow Fries quantity">+</button>
+                        </div>
+                    </div>
                     <p id="GlowFriesQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addGlowFries">Add to Cart</button>
                     <button id="removeGlowFries">Remove from Cart</button>
@@ -57,7 +75,13 @@
                 <img src="Assets/Spicy Christmas Eve Spaghetti Feast.png" alt="Spicy Spaghetti" class="product-image">
                 <p class="product-description">The Spicy Spaghetti is a fiery delight that will heat up your taste buds.</p>
                 <div class="product-actions">
-                    <input id="SpicySpaghettiQty" type="number" step="1" min="1" value="1" aria-label="Spicy Spaghetti quantity">
+                    <div class="quantity-stepper">
+                        <input id="SpicySpaghettiQty" type="number" step="1" min="1" value="1" aria-label="Spicy Spaghetti quantity">
+                        <div class="quantity-step-controls">
+                            <button type="button" class="quantity-step" data-step="-1" aria-label="Decrease Spicy Spaghetti quantity">−</button>
+                            <button type="button" class="quantity-step" data-step="1" aria-label="Increase Spicy Spaghetti quantity">+</button>
+                        </div>
+                    </div>
                     <p id="SpicySpaghettiQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addSpicySpaghetti">Add to Cart</button>
                     <button id="removeSpicySpaghetti">Remove from Cart</button>
@@ -69,7 +93,13 @@
                 <img src="Assets/Spooky Halloween Hotdog Promotion.png" alt="Spooky Hot Dog" class="product-image">
                 <p class="product-description">The Spooky Hot Dog is a delicious treat that will give you a spooky twist on a classic favorite.</p>
                 <div class="product-actions">
-                    <input id="SpookyHotDogQty" type="number" step="1" min="1" value="1" aria-label="Spooky Hot Dog quantity">
+                    <div class="quantity-stepper">
+                        <input id="SpookyHotDogQty" type="number" step="1" min="1" value="1" aria-label="Spooky Hot Dog quantity">
+                        <div class="quantity-step-controls">
+                            <button type="button" class="quantity-step" data-step="-1" aria-label="Decrease Spooky Hot Dog quantity">−</button>
+                            <button type="button" class="quantity-step" data-step="1" aria-label="Increase Spooky Hot Dog quantity">+</button>
+                        </div>
+                    </div>
                     <p id="SpookyHotDogQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addSpookyHotDog">Add to Cart</button>
                     <button id="removeSpookyHotDog">Remove from Cart</button>
@@ -81,7 +111,13 @@
                 <img src="Assets/Thanksgiving Fried Chicken Feast.png" alt="Thanksgiving Chicken" class="product-image">
                 <p class="product-description">The Thanksgiving Chicken is a delicious twist on a classic favorite, perfect for the holiday season.</p>
                 <div class="product-actions">
-                    <input id="ThanksgivingChickenQty" type="number" step="1" min="1" value="1" aria-label="Thanksgiving Chicken quantity">
+                    <div class="quantity-stepper">
+                        <input id="ThanksgivingChickenQty" type="number" step="1" min="1" value="1" aria-label="Thanksgiving Chicken quantity">
+                        <div class="quantity-step-controls">
+                            <button type="button" class="quantity-step" data-step="-1" aria-label="Decrease Thanksgiving Chicken quantity">−</button>
+                            <button type="button" class="quantity-step" data-step="1" aria-label="Increase Thanksgiving Chicken quantity">+</button>
+                        </div>
+                    </div>
                     <p id="ThanksgivingChickenQuantity" class="cart-quantity" aria-live="polite" hidden></p>
                     <button id="addThanksgivingChicken">Add to Cart</button>
                     <button id="removeThanksgivingChicken">Remove from Cart</button>
@@ -138,14 +174,24 @@ productCatalog.forEach(({ key, label, qtyInputId, addId, removeId }) => {
     const input = document.getElementById(qtyInputId);
     if (!input) return;
 
+    input.closest(".quantity-stepper").querySelectorAll(".quantity-step").forEach((button) => {
+        button.addEventListener("click", function () {
+            const currentQty = parseInt(input.value, 10) || 1;
+            const step = Number(button.dataset.step);
+            input.value = String(Math.max(1, currentQty + step));
+        });
+    });
+
     document.getElementById(addId).addEventListener("click", function () {
-        const qty = parseInt(input.value, 10) || 1;
+        const qty = Math.max(1, parseInt(input.value, 10) || 1);
+        input.value = String(qty);
         updateCartItem(key, qty, label);
         updateProductQuantities();
     });
 
     document.getElementById(removeId).addEventListener("click", function () {
-        const qty = parseInt(input.value, 10) || 1;
+        const qty = Math.max(1, parseInt(input.value, 10) || 1);
+        input.value = String(qty);
         updateCartItem(key, -qty, label);
         updateProductQuantities();
     });
